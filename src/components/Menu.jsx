@@ -23,12 +23,12 @@ import DarkModeIcon from "@mui/icons-material/NightlightOutlined";
 
 const Container = styled.div`
 	flex: 1;
-	background-color: #202020;
+	background-color: ${({ theme }) => theme.bgLighter};
 	height: 100vh;
-	color: white;
+	color: ${({ theme }) => theme.text};
 	font-size: 14px;
 	position: sticky;
-	min-width: 200px;
+	min-width: 230px;
 	top: 0;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -62,7 +62,7 @@ const Hr = styled.hr`
 	margin: 15px 0px;
 	border-width: 0.5px;
 	border-style: solid;
-	border-color: #373737;
+	border-color: ${({ theme }) => theme.textSoft};
 `;
 
 const Login = styled.div``;
@@ -76,15 +76,23 @@ const LoginButton = styled.button`
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+	cursor: pointer;
 `;
 
-export const Menu = () => {
+const Title = styled.h2`
+	font-size: 14px;
+	font-weight: 500;
+	color: #aaaaaaaa;
+	margin-bottom: 20px;
+`;
+
+export const Menu = ({ darkMode, setDarkMode }) => {
 	return (
 		<Container>
 			<Wrapper>
 				<Logo>
 					<Img src={LogoImg} />
-					Lamatube
+					CloneTube
 				</Logo>
 				<Item>
 					<HomeIcon />
@@ -116,6 +124,7 @@ export const Menu = () => {
 					</LoginButton>
 				</Login>
 				<Hr />
+				<Title>BEST OF CLONETUBE</Title>
 				<Item>
 					<LibraryMusicIcon />
 					Music
@@ -153,7 +162,7 @@ export const Menu = () => {
 					<HelpIcon />
 					Help
 				</Item>
-				<Item>
+				<Item onPointerUp={() => setDarkMode(!darkMode)}>
 					<LanguageIcon />
 					Light Mode
 				</Item>
