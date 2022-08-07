@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import LogoImg from "../img/youtube.png";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
@@ -25,13 +27,13 @@ const Container = styled.div`
 	flex: 1;
 	background-color: ${({ theme }) => theme.bgLighter};
 	height: 100vh;
+	max-height: 100vh;
 	color: ${({ theme }) => theme.text};
 	font-size: 14px;
 	position: sticky;
 	min-width: 230px;
 	top: 0;
 	overflow-y: scroll;
-	overflow-x: hidden;
 `;
 
 const Wrapper = styled.div`
@@ -42,7 +44,8 @@ const Logo = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 5px;
-	font-weight: bold;
+	font-size: 17px;
+	font-weight: 900;
 	margin-bottom: 25px;
 `;
 
@@ -90,10 +93,12 @@ export const Menu = ({ darkMode, setDarkMode }) => {
 	return (
 		<Container>
 			<Wrapper>
-				<Logo>
-					<Img src={LogoImg} />
-					CloneTube
-				</Logo>
+				<Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+					<Logo>
+						<Img src={LogoImg} />
+						CloneTube
+					</Logo>
+				</Link>
 				<Item>
 					<HomeIcon />
 					Home
