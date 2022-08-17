@@ -169,7 +169,7 @@ export const Menu = ({ darkMode, setDarkMode }) => {
 				</Item>
 				<Item onPointerUp={() => setDarkMode(!darkMode)}>
 					<LanguageIcon />
-					Light Mode
+					{darkMode ? "Dark" : "Light"} Mode
 				</Item>
 			</Wrapper>
 		</Container>
