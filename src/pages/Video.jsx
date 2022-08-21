@@ -4,6 +4,8 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
+import Comments from "../components/Comments";
+import Card from "../components/Card";
 
 const Container = styled.div`
 	display: flex;
@@ -157,8 +159,21 @@ const Video = () => {
 					</ChannelInfo>
 					<Subbcribe>SUBCRIBE</Subbcribe>
 				</Channel>
+				<Hr />
+				<Comments></Comments>
 			</Content>
-			<Recommendation>Recommendation</Recommendation>
+			<Recommendation>
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+				<Card type="sm" />
+			</Recommendation>
 		</Container>
 	);
 };
