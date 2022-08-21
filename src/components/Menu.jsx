@@ -36,6 +36,19 @@ const Container = styled.div`
 	overflow-y: scroll;
 `;
 
+const Container2 = styled.div`
+	flex: 1;
+	background-color: ${({ theme }) => theme.bgLighter};
+	height: 100vh;
+	max-height: 100vh;
+	color: ${({ theme }) => theme.text};
+	font-size: 14px;
+	position: sticky;
+	min-width: 230px;
+	top: 0;
+	overflow-y: scroll;
+`;
+
 const Wrapper = styled.div`
 	padding: 10px 26px;
 `;
