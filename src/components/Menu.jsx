@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import LogoImg from "../img/youtube.png";
 
 import HomeIcon from "@mui/icons-material/HomeOutlined";
@@ -23,15 +25,28 @@ import DarkModeIcon from "@mui/icons-material/NightlightOutlined";
 
 const Container = styled.div`
 	flex: 1;
-	background-color: #202020;
+	background-color: ${({ theme }) => theme.bgLighter};
 	height: 100vh;
-	color: white;
+	max-height: 100vh;
+	color: ${({ theme }) => theme.text};
 	font-size: 14px;
 	position: sticky;
-	min-width: 200px;
+	min-width: 230px;
 	top: 0;
 	overflow-y: scroll;
-	overflow-x: hidden;
+`;
+
+const Container2 = styled.div`
+	flex: 1;
+	background-color: ${({ theme }) => theme.bgLighter};
+	height: 100vh;
+	max-height: 100vh;
+	color: ${({ theme }) => theme.text};
+	font-size: 14px;
+	position: sticky;
+	min-width: 230px;
+	top: 0;
+	overflow-y: scroll;
 `;
 
 const Wrapper = styled.div`
@@ -42,7 +57,8 @@ const Logo = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 5px;
-	font-weight: bold;
+	font-size: 17px;
+	font-weight: 900;
 	margin-bottom: 25px;
 `;
 
@@ -56,13 +72,17 @@ const Item = styled.div`
 	gap: 20px;
 	padding: 8px 0px;
 	cursor: pointer;
+
+	&:hover {
+		background-color: ${({ theme }) => theme.soft};
+	}
 `;
 
 const Hr = styled.hr`
 	margin: 15px 0px;
 	border-width: 0.5px;
 	border-style: solid;
-	border-color: #373737;
+	border-color: ${({ theme }) => theme.textSoft};
 `;
 
 const Login = styled.div``;
@@ -76,16 +96,26 @@ const LoginButton = styled.button`
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+	cursor: pointer;
 `;
 
-export const Menu = () => {
+const Title = styled.h2`
+	font-size: 14px;
+	font-weight: 500;
+	color: #aaaaaaaa;
+	margin-bottom: 20px;
+`;
+
+export const Menu = ({ darkMode, setDarkMode }) => {
 	return (
 		<Container>
 			<Wrapper>
-				<Logo>
-					<Img src={LogoImg} />
-					Lamatube
-				</Logo>
+				<Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+					<Logo>
+						<Img src={LogoImg} />
+						CloneTube
+					</Logo>
+				</Link>
 				<Item>
 					<HomeIcon />
 					Home
@@ -110,12 +140,18 @@ export const Menu = () => {
 				<Hr />
 				<Login>
 					Sign in to like videos, comment and subcribe.
-					<LoginButton>
-						<AccountIcon />
-						SIGN IN
-					</LoginButton>
+					<Link
+						to={"signin"}
+						style={{ textDecoration: "none", color: "inherit" }}
+					>
+						<LoginButton>
+							<AccountIcon />
+							SIGN IN
+						</LoginButton>
+					</Link>
 				</Login>
 				<Hr />
+				<Title>BEST OF CLONETUBE</Title>
 				<Item>
 					<LibraryMusicIcon />
 					Music
@@ -153,9 +189,9 @@ export const Menu = () => {
 					<HelpIcon />
 					Help
 				</Item>
-				<Item>
+				<Item onPointerUp={() => setDarkMode(!darkMode)}>
 					<LanguageIcon />
-					Light Mode
+					{darkMode ? "Dark" : "Light"} Mode
 				</Item>
 			</Wrapper>
 		</Container>
