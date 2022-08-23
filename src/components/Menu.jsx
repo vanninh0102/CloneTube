@@ -140,10 +140,15 @@ export const Menu = ({ darkMode, setDarkMode }) => {
 				<Hr />
 				<Login>
 					Sign in to like videos, comment and subcribe.
-					<LoginButton>
-						<AccountIcon />
-						SIGN IN
-					</LoginButton>
+					<Link
+						to={"signin"}
+						style={{ textDecoration: "none", color: "inherit" }}
+					>
+						<LoginButton>
+							<AccountIcon />
+							SIGN IN
+						</LoginButton>
+					</Link>
 				</Login>
 				<Hr />
 				<Title>BEST OF CLONETUBE</Title>
